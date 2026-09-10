@@ -5,7 +5,7 @@ WITH cte AS (
     FROM Employee
     GROUP BY managerId
     HAVING COUNT(managerId) >= 5
-       AND managerId IS NOT NULL
+    
 )
 
 SELECT f.name
