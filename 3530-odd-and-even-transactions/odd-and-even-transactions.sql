@@ -1,0 +1,8 @@
+-- Write your PostgreSQL query statement below
+SELECT transaction_date,
+COALESCE(SUM(CASE WHEN amount % 2 = 1 THEN 0+amount END ),0)AS odd_sum,
+COALESCE(SUM(CASE WHEN amount % 2 = 0 THEN 0+amount END ),0)AS even_sum
+
+FROM transactions
+GROUP BY transaction_date
+ORDER BY transaction_date
